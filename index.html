@@ -3,216 +3,220 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bernard Keister VI | Content & Media Management</title>
+  <title>Bernard Keister VI | Content and Media Management</title>
+  <meta name="description" content="Bernard Keister VI — Content and Media Management. Aspiring to build media of today for a better tomorrow.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0e0e0e;
-      --bg-alt: #161616;
-      --gold: #D4AF37;
-      --silver: #C0C0C0;
-      --text: #f4f4f4;
-      --muted: #a0a0a0;
+      --bg: #0c0c0c;
+      --surface: #141414;
+      --fg: #f3f1ea;
+      --muted: #a39e94;
+      --gold: #c6a15b;
+      --silver: #c8c6c1;
+      --line: #2a2824;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', system-ui, sans-serif;
-      line-height: 1.65;
+      color: var(--fg);
+      font-family: Outfit, system-ui, sans-serif;
+      line-height: 1.6;
     }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.25rem; }
     header {
-      background: radial-gradient(ellipse at top, #1a1a1a 0%, #0a0a0a 70%);
-      padding: 5rem 2rem 4rem;
-      text-align: center;
-      border-bottom: 1px solid #2a2a2a;
-    }
-    .headshot {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--gold);
-      margin-bottom: 1.75rem;
-      box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
-    }
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.4rem;
-      color: var(--gold);
-      letter-spacing: 0.5px;
-      margin-bottom: 0.4rem;
-      font-weight: 700;
-    }
-    .career {
-      font-size: 1.35rem;
-      color: var(--silver);
-      font-weight: 500;
-      letter-spacing: 1px;
-      margin-bottom: 1.25rem;
-      text-transform: uppercase;
-    }
-    .tagline {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.25rem;
-      color: var(--gold);
-      max-width: 620px;
-      margin: 0 auto;
-    }
-    nav {
-      background: #0a0a0a;
-      padding: 1.1rem 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 2.75rem;
-      border-bottom: 1px solid #2a2a2a;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 10;
+      background: rgb(12 12 12 / 0.95);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
     }
+    .bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 4rem;
+    }
+    .mark {
+      font-family: "Instrument Serif", Georgia, serif;
+      color: var(--gold);
+      font-size: 1.35rem;
+      white-space: nowrap;
+    }
+    nav ul { display: flex; list-style: none; overflow-x: auto; }
     nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.75rem;
+      padding: 0 0.5rem;
       color: var(--silver);
-      text-decoration: none;
+      font-size: 0.72rem;
       font-weight: 500;
-      letter-spacing: 0.6px;
-      font-size: 0.95rem;
-      transition: color 0.2s ease;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
     nav a:hover { color: var(--gold); }
-    section {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 4.5rem 2rem;
-    }
-    h2 {
-      font-family: 'Playfair Display', serif;
-      color: var(--gold);
-      font-size: 2.4rem;
-      margin-bottom: 1.75rem;
-      border-bottom: 1px solid var(--silver);
-      padding-bottom: 0.45rem;
-      display: inline-block;
-    }
-    .structure-grid {
+    .hero {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.75rem;
-      margin-top: 2rem;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 4rem 0 5rem;
+      border-top: 0;
     }
-    .card {
-      background: var(--bg-alt);
-      border: 1px solid #2e2e2e;
-      padding: 1.75rem;
-      border-radius: 6px;
-      transition: all 0.25s ease;
+    @media (min-width: 768px) {
+      .hero { grid-template-columns: 16rem 1fr; padding: 6rem 0; }
     }
-    .card:hover {
-      border-color: var(--gold);
-      transform: translateY(-3px);
+    .portrait {
+      width: min(100%, 16rem);
+      aspect-ratio: 1;
+      object-fit: cover;
+      border: 1px solid var(--gold);
     }
-    .card h3 {
-      color: var(--silver);
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      margin-bottom: 0.6rem;
-    }
-    .project {
-      background: var(--bg-alt);
-      padding: 2.25rem;
-      border-left: 5px solid var(--gold);
-      margin-top: 1.25rem;
-      border-radius: 0 6px 6px 0;
-    }
-    .project h3 {
+    .eyebrow {
       color: var(--gold);
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
-    audio {
-      width: 100%;
-      margin: 1.25rem 0;
-      filter: invert(0.9) hue-rotate(10deg);
+    h1, h2, h3, .serif { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; }
+    h1 { margin-top: 1rem; font-size: clamp(3rem, 7vw, 4.5rem); line-height: 0.95; }
+    .tagline {
+      margin-top: 1.5rem;
+      max-width: 36rem;
+      color: var(--silver);
+      font-size: clamp(1.45rem, 3vw, 1.85rem);
+      font-style: italic;
+      line-height: 1.3;
     }
-    footer {
-      text-align: center;
-      padding: 2.5rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-      border-top: 1px solid #2a2a2a;
+    section { border-top: 1px solid var(--line); padding: 4rem 0; scroll-margin-top: 5rem; }
+    h2 { margin-top: 0.75rem; font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1.05; }
+    .lede { margin-top: 1rem; max-width: 42rem; color: var(--muted); }
+    .lede.light { color: var(--fg); }
+    .grid {
+      margin-top: 2.5rem;
+      display: grid;
+      gap: 1px;
+      background: var(--line);
+    }
+    @media (min-width: 640px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    .card { display: block; background: var(--bg); padding: 1.5rem; }
+    .card:hover { background: var(--surface); }
+    .num { color: var(--gold); font-size: 0.95rem; }
+    .card h3 { margin-top: 1rem; font-size: 1.85rem; }
+    .card p, .later { margin-top: 0.75rem; color: var(--muted); font-size: 0.95rem; }
+    .facts {
       margin-top: 2rem;
+      display: grid;
+      gap: 1.5rem;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 1.5rem 0;
     }
-    p { margin-bottom: 1rem; color: var(--text); }
+    @media (min-width: 640px) { .facts { grid-template-columns: repeat(3, 1fr); } }
+    dt { color: var(--gold); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; }
+    dd { margin-top: 0.45rem; color: var(--silver); font-size: 0.95rem; }
+    audio { width: 100%; margin-top: 2rem; }
+    footer { border-top: 1px solid var(--line); padding: 2rem 0; }
+    .foot {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    @media (min-width: 640px) {
+      .foot { flex-direction: row; justify-content: space-between; align-items: center; }
+    }
+    .foot .serif { color: var(--silver); font-size: 1.15rem; }
   </style>
 </head>
 <body>
   <header>
-    <img src="workspaceartifactsheadshot.jpg" alt="Professional headshot of Bernard Keister VI" class="headshot">
-    <h1>Bernard Keister VI</h1>
-    <p class="career">Content and Media Management</p>
-    <p class="tagline">Aspiring to Build Media of Today for a Better Tomorrow</p>
-  </header>
-
-  <nav>
-    <a href="#structure">Structure</a>
-    <a href="#projects">Projects</a>
-    <a href="#content-creation">Content Creation</a>
-    <a href="#live-production">Live Production</a>
-    <a href="#videography">Videography</a>
-  </nav>
-
-  <section id="structure">
-    <h2>Portfolio Structure</h2>
-    <p>This portfolio is organized so visitors immediately see my direction and planned focus areas. At least three content areas are visible below:</p>
-    <div class="structure-grid">
-      <div class="card">
-        <h3>Content Creation</h3>
-        <p>Original media, creative concepts, and finished storytelling projects.</p>
-      </div>
-      <div class="card">
-        <h3>Live Production</h3>
-        <p>Streaming, real-time production, and live media management work.</p>
-      </div>
-      <div class="card">
-        <h3>Videography</h3>
-        <p>Video projects, shooting, editing, and visual storytelling.</p>
-      </div>
+    <div class="wrap bar">
+      <a class="mark" href="#top">Bernard Keister VI</a>
+      <nav>
+        <ul>
+          <li><a href="#structure">Structure</a></li>
+          <li><a href="#projects">Work</a></li>
+          <li><a href="#content-creation">Content</a></li>
+          <li><a href="#live-production">Live</a></li>
+          <li><a href="#videography">Video</a></li>
+        </ul>
+      </nav>
     </div>
-  </section>
-
-  <section id="projects">
-    <h2>Featured Work Sample</h2>
-    <div class="project">
-      <h3>Sugar Shockers</h3>
-      <p>Sugar Shockers is a satirical audio commercial created for my Audio Production class. I recorded the vocals, added sound effects, mixed and edited the piece in Pro Tools, and bounced the final edit. This project demonstrates my skills in voice recording, sound design, audio mixing, and creative storytelling through sound.</p>
+  </header>
+  <main id="top" class="wrap">
+    <section class="hero">
+      <img class="portrait" src="workspaceartifactsheadshot.jpg" alt="Professional headshot of Bernard Keister VI">
+      <div>
+        <p class="eyebrow">Content and Media Management</p>
+        <h1>Bernard Keister VI</h1>
+        <p class="tagline serif">Aspiring to build media of today for a better tomorrow.</p>
+      </div>
+    </section>
+    <section id="structure">
+      <p class="eyebrow">Structure</p>
+      <h2>Three areas of practice</h2>
+      <p class="lede">The portfolio is organized so a visitor can see the direction immediately. Each area is visible now, even where the work is still being added.</p>
+      <div class="grid">
+        <a class="card" href="#content-creation">
+          <p class="num serif">01</p>
+          <h3>Content Creation</h3>
+          <p>Original media, creative concepts, and finished storytelling projects.</p>
+        </a>
+        <a class="card" href="#live-production">
+          <p class="num serif">02</p>
+          <h3>Live Production</h3>
+          <p>Streaming, real-time production, and live media management.</p>
+        </a>
+        <a class="card" href="#videography">
+          <p class="num serif">03</p>
+          <h3>Videography</h3>
+          <p>Video projects, shooting, editing, and visual storytelling.</p>
+        </a>
+      </div>
+    </section>
+    <section id="projects">
+      <p class="eyebrow">Selected work</p>
+      <h2>Sugar Shockers</h2>
+      <p class="lede light">Sugar Shockers is a satirical audio commercial created for my Audio Production class. I recorded the vocals, added sound effects, mixed and edited the piece in Pro Tools, and bounced the final edit. The piece shows voice recording, sound design, audio mixing, and storytelling through sound.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Record, design, mix, and edit</dd></div>
+        <div><dt>Tools</dt><dd>Pro Tools</dd></div>
+        <div><dt>Context</dt><dd>Audio Production class</dd></div>
+      </dl>
       <audio controls preload="metadata">
         <source src="sugar-shockers.wav" type="audio/wav">
-        Your browser does not support the audio element.
       </audio>
-      <p style="color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem;">Audio Production Class Project • Recorded, mixed, and edited in Pro Tools</p>
-    </div>
-  </section>
-
-  <section id="content-creation">
-    <h2>Content Creation</h2>
-    <p>Additional projects will be added here. This section will feature original media, creative work, and finished content pieces from both personal and academic work.</p>
-  </section>
-
-  <section id="live-production">
-    <h2>Live Production</h2>
-    <p>Additional projects will be added here. This section will showcase streaming, live events, and real-time production experience.</p>
-  </section>
-
-  <section id="videography">
-    <h2>Videography</h2>
-    <p>Additional projects will be added here. This section will include video shoots, edits, and visual storytelling projects.</p>
-  </section>
-
+    </section>
+    <section id="content-creation">
+      <p class="eyebrow">01</p>
+      <h2>Content Creation</h2>
+      <p class="later">Personal and academic pieces will be collected here as they are finished.</p>
+    </section>
+    <section id="live-production">
+      <p class="eyebrow">02</p>
+      <h2>Live Production</h2>
+      <p class="later">Live events and streaming work will be documented here.</p>
+    </section>
+    <section id="videography">
+      <p class="eyebrow">03</p>
+      <h2>Videography</h2>
+      <p class="later">Shoots and finished edits will be added here.</p>
+    </section>
+  </main>
   <footer>
-    Bernard Keister VI &nbsp;|&nbsp; Content and Media Management
+    <div class="wrap foot">
+      <p class="serif">Bernard Keister VI</p>
+      <p>Content and Media Management</p>
+    </div>
   </footer>
 </body>
 </html>
