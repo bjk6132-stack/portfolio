@@ -21,10 +21,31 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      background: var(--bg);
+      background-color: var(--bg);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='48' viewBox='0 0 84 48'%3E%3Cpath d='M0 48a42 42 0 0 1 84 0' fill='none' stroke='%23c8c6c1' stroke-opacity='0.42' stroke-width='0.7'/%3E%3Cpath d='M-42 24a42 42 0 0 1 84 0' fill='none' stroke='%23c8c6c1' stroke-opacity='0.42' stroke-width='0.7'/%3E%3Cpath d='M42 24a42 42 0 0 1 84 0' fill='none' stroke='%23c8c6c1' stroke-opacity='0.42' stroke-width='0.7'/%3E%3C/svg%3E");
+      background-attachment: fixed;
       color: var(--fg);
       font-family: Outfit, system-ui, sans-serif;
       line-height: 1.6;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -20%;
+      z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(115deg, transparent 36%, rgb(200 198 193 / 0.16) 48%, transparent 60%);
+      animation: silver-shimmer 16s ease-in-out infinite;
+    }
+    header, main, footer { position: relative; z-index: 1; }
+    @keyframes silver-shimmer {
+      0% { transform: translateX(-12%); }
+      50% { transform: translateX(12%); }
+      100% { transform: translateX(-12%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      body::before { animation: none; }
     }
     a { color: inherit; text-decoration: none; }
     .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.25rem; }
@@ -121,7 +142,7 @@
     .about p:first-child { margin-top: 0; }
     .shots { display: grid; gap: 0.75rem; }
     .shots img { width: 100%; object-fit: cover; display: block; }
-    .shot-campus { aspect-ratio: 4 / 3; border: 1px solid var(--gold); }
+    .shot-campus { aspect-ratio: 3 / 4; border: 1px solid var(--gold); object-position: top; }
     .shot-face { aspect-ratio: 1; border: 1px solid var(--line); object-position: top; }
     .lede.light { color: var(--fg); }
     .grid {
