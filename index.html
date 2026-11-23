@@ -108,7 +108,21 @@
     }
     section { border-top: 1px solid var(--line); padding: 4rem 0; scroll-margin-top: 5rem; }
     h2 { margin-top: 0.75rem; font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1.05; }
-    .lede { margin-top: 1rem; max-width: 42rem; color: var(--muted); }
+    .about {
+      display: grid;
+      gap: 2.5rem;
+      align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media (min-width: 1024px) {
+      .about { grid-template-columns: 1fr 22rem; }
+    }
+    .about p { margin-top: 1rem; max-width: 42rem; }
+    .about p:first-child { margin-top: 0; }
+    .shots { display: grid; gap: 0.75rem; }
+    .shots img { width: 100%; object-fit: cover; display: block; }
+    .shot-campus { aspect-ratio: 4 / 3; border: 1px solid var(--gold); }
+    .shot-face { aspect-ratio: 1; border: 1px solid var(--line); object-position: top; }
     .lede.light { color: var(--fg); }
     .grid {
       margin-top: 2.5rem;
@@ -154,6 +168,7 @@
       <a class="mark" href="#top">Bernard Keister VI</a>
       <nav>
         <ul>
+          <li><a href="#about">About</a></li>
           <li><a href="#structure">Structure</a></li>
           <li><a href="#projects">Work</a></li>
           <li><a href="#content-creation">Content</a></li>
@@ -170,6 +185,21 @@
         <p class="eyebrow">Content and Media Management</p>
         <h1>Bernard Keister VI</h1>
         <p class="tagline serif">Aspiring to build media of today for a better tomorrow.</p>
+      </div>
+    </section>
+    <section id="about">
+      <p class="eyebrow">About</p>
+      <h2>Five years in, still learning</h2>
+      <div class="about">
+        <div>
+          <p>My name is Bernard Keister VI. I have been in content and media creation for the last five years, and I am studying Live Production at Cedarville University. I fell in love with media when I was very young. I fell in love with creation about six years ago.</p>
+          <p>I took a leap and asked a friend online whether they needed someone to edit their videos. They said yes. That is where my love of creating content, and of bringing laughter and joy to a wider audience, began.</p>
+          <p>I have been a student at Cedarville since the fall of 2025. I plan to absorb as much knowledge as I can, and to use the gifts I have been given as well as I am able.</p>
+        </div>
+        <div class="shots">
+          <img class="shot-campus" src="about-campus.jpg" alt="Bernard Keister VI beside a campus rock painted Happy 1st Day">
+          <img class="shot-face" src="about-portrait.jpg" alt="Bernard Keister VI">
+        </div>
       </div>
     </section>
     <section id="structure">
